@@ -1,6 +1,6 @@
 .bkcolor{
     width:1349px;
-    height:3240px;
+    height:6830px;
     background: #f5f5f5;
 }
 .ty-left{
@@ -19,6 +19,7 @@
 }
 a{
     text-decoration: none;      /*清除下划线*/
+    list-style: none;
 }
 /*小米首页导航开始*/
 .mi_header{
@@ -52,6 +53,13 @@ a{
     line-height: 40px;
 }
 /*后代选择器*/
+#car:hover{
+    background: #fff;
+    color: #ff6700;
+}
+.header-car a:hover{
+    color: #fff;
+}
 .header-nav a{
     color: #b0b0b0;
     width:auto;
@@ -181,9 +189,26 @@ a{
 /*小米首页轮播图开始*/
 .banner-box {
     height: 460px;
-    background: red;
+    /*background: red;*/
     margin:0 auto;
+    margin-bottom: 26px;
     position: relative;
+}
+#banner-new{
+    width: 100%;
+    height: 100%;
+}
+#banner-new>li{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all linear 0.8s;
+    opacity: 0.6;
+    z-index: 1;
+}
+#banner-new>li.active{     /*选择有active的li标签*/
+    z-index: 2;
+    opacity: 1;
 }
 .banner-list {
     width: 230px;
@@ -195,6 +220,7 @@ a{
     position: absolute;
     left:0;
     top:0;
+    z-index: 9;
 }
 .banner-item {
     width: 100%;
@@ -230,12 +256,15 @@ a{
 }
     /*轮播图列表结束*/
 .banner-img{
-    width:100%;
-    height:100%;
-    background: #00a5c4;
+    width:1226px;
+    height:460px;
+    display: block;
+    /*background: #00a5c4;*/
 }
 .banner-img img{
-    width:100%;
+    width:1226px;
+    height:460px;
+    display: block;
 }
 .btn-left {
     width: 41px;
@@ -247,6 +276,7 @@ a{
     /*背景图片*/
     background-image: url("../img/icon-slides.png");    /*轮播箭头*/
     background-position: 83px 0;
+    z-index: 10;
 }
 .btn-left:hover{
     background-position: 0px 0;         /*鼠标移入左箭头*/
@@ -261,17 +291,22 @@ a{
     /*背景图片*/
     background-image: url("../img/icon-slides.png");    /*轮播箭头*/
     background-position: 41px 0;
+    z-index: 10;
 }
 .btn-right:hover{
     background-position: -41px 0;       /*鼠标移入右箭头*/
 }
 .dots {
-    width: 100px;
+    width: 120px;
     height: 10px;
     /*background: #000000;*/
     position: absolute;
-    right:50px;
-    bottom:20px;
+    right: 50px;
+    bottom: 20px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .dot {
     width: 10px;
@@ -279,12 +314,31 @@ a{
     border-radius: 50%;
     background: #fff;
     float: left;
-    margin:0 5px
+    margin:0 5px;
+    border:1px solid pink;
+    transition: all linear;
 }
-.hover{
-    background: #00a5c4;
+.dot.active{
+    border:2px solid pink;
 }
+
 /*小米首页轮播结束*/
+
+/*小米首页黑鲨开始*/
+.sha{
+    height:120px;
+    /*background: red;*/
+    margin: 2px auto 42px;
+    box-sizing: border-box;
+}
+.sha img{
+    width:100%;
+    height:100%;
+}
+.hui{
+    margin: 28px auto 22px;
+}
+/*小米首页黑鲨结束*/
 
 /*小米首页小米闪购开始*/
 .flash-box{
@@ -443,6 +497,7 @@ a{
 .phone-box{
     height:686px;
     margin: 0 auto;
+    padding-top: 22px;
 }
 .phone-title {
     width: 100%;
@@ -566,8 +621,8 @@ a{
 /*小米首页家电部分开始*/
 .home-box{
     height:686px;
-    /*background: #ff6700;*/
-    margin: 20px auto ;
+    background: #f5f5f5;
+    margin: 0 auto 8px ;
 }
 .home-title {
     width: 100%;
@@ -668,7 +723,7 @@ a{
     left:37px;
 }
 .home-bd-list a{
-    width: 200px;
+    width:214px;
     height: 20px;
     color: #333;
     font-size: 14px;
@@ -680,7 +735,7 @@ a{
     white-space: nowrap;
     position: absolute;
     left:10px;
-    top:200px
+    top:200px;
 }
 .p1{
     width: 214px;
@@ -708,6 +763,20 @@ a{
     position: absolute;
     left:0;
     top:250px
+}
+.p3{
+    font-size: 14px;
+    color: #b0b0b0;
+    position: absolute;
+    left:0;
+    top:250px
+}
+.p4{
+    font-size: 12px;
+    color: #ff6700;
+    position: absolute;
+    left:0;
+    top:220px
 }
 .flag1{
     width:64px;
@@ -1157,14 +1226,20 @@ a{
     /*background: #ff6700;*/
     box-sizing: border-box;
 }
-.content-item{
-    width:296px;
-    height:100%;
+.content-item {
+    width: 296px;
+    height: 100%;
     background: #fff;
     position: relative;
     float: left;
-    padding:45px 0 0;
+    padding: 45px 0 0;
     box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.content-item h2{
+    width: 100%;
 }
 .control-left {
     width: 41px;
@@ -1264,29 +1339,31 @@ a{
     height:154px;
     /*background: pink;*/
     /*margin: 0px 20px;*/
+    text-align: center;
 }
 .book-img a{
     display: block;
-    margin: 0px 48px;
+    /*margin: 0px 48px;*/
 }
 .book-dd{
     width:100%;
     height:30px;
     /*background: #e53935;*/
 }
-.book-dian{
-    width:120px;
-    height:30px;
-    margin: 0 105px 0;
+.book-dian {
+    width: auto;
+    height: 30px;
+    margin: 8px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .book-dd li{
     width:6px;
     height:6px;
     background: #b0b0b0;
-    cursor: default;
     border-radius: 50%;
-    margin: 20px 10px 0;
-    float: left;
+    margin: 0 10px 0;
     cursor: pointer;
 }
 .book-dd li:hover{
@@ -1294,7 +1371,7 @@ a{
 }
 .book-dd .dd1{
     background: #fff;
-    border:solid 0.5px #ff6700;
+    border:solid 2px #ff6700;
 }
 /*小米首页内容结束*/
 
@@ -1325,21 +1402,25 @@ a{
     display: flex;
     align-items: center;
 }
+
 .footer_item:last-child{
     border: 0;
 }
 .footer_item a{
     margin: 0 auto;
-    width: 100%;
+    width: auto;
     height:100%;
     color: #616161;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.footer_item a:hover{
+    color: #ff6700;
+}
 .footer_item i{
     font-size: 24px;
-    margin-right: 2px;
+    margin-right: 6px;
 }
 .footer_link{
     height:192px;
@@ -1365,6 +1446,9 @@ a{
 .link_item a{
     color: #757575;
     font-size: 12px;
+}
+.link_item a:hover{
+    color: #ff6700;
 }
 .link_content{
     width:251px;
@@ -1402,7 +1486,9 @@ a{
     height: 28px;
     border: solid 1px #ff6700;
     float: right;
-    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin: 0 65px;
 }
@@ -1457,6 +1543,9 @@ a{
     color: #757575;
     font-size: 12px;
 }
+.site-nav a:hover{
+    color: #ff6700;
+}
 .site-nav span {
     font-family: sans-serif;
     color: #b0b0b0;
@@ -1466,6 +1555,9 @@ a{
     font-size: 12px;
     color: #b0b0b0;
     margin-left: 10px;
+}
+.site_content p a:hover{
+    color: #ff6700;
 }
 p a{
     font-size: 12px;
